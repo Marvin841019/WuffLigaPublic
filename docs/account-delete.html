@@ -35,8 +35,8 @@
 
   <section class="account-card danger-card hidden" id="delete-section">
     <h2>Deine gespeicherten Daten</h2>
-    <p>Lade einen maschinenlesbaren Datenschutzbericht mit deinen Konto-, Profil-, Aktivitäts-, Community-, Datenschutz- und Medien-Metadaten herunter.</p>
-    <button id="export-button" class="button form-button">Datenschutzbericht herunterladen</button>
+    <p>Lade eine vollständige Kopie deiner bereitgestellten Daten herunter. Das ZIP-Archiv enthält einen strukturierten Datenschutzbericht sowie die zugehörigen hochgeladenen Originalbilder und -videos.</p>
+    <button id="export-button" class="button form-button">Vollständiges Datenschutzarchiv herunterladen</button>
     <div class="form-message" id="export-message" role="status"></div>
     <hr class="account-divider">
     <h2>Endgültige Löschung</h2>
@@ -56,7 +56,7 @@
   const project = 'https://uylqpueptrulbbaxmllc.supabase.co';
   const key = 'sb_publishable_Wyq430CcD4r2GmnURF7bgQ_dJaCfK8d';
   const deleteEndpoint = project + '/functions/v1/wuffliga-konto/delete';
-  const exportEndpoint = project + '/functions/v1/wuffliga-konto/export';
+  const exportEndpoint = project + '/functions/v1/wuffliga-konto/export-archive';
   let accessToken = '';
 
   const showMessage = (id, text, error = false) => { const el = document.getElementById(id); el.textContent = text; el.className = 'form-message visible' + (error ? ' error' : ''); };
@@ -73,7 +73,7 @@
   document.getElementById('login-form').addEventListener('submit', async event => { event.preventDefault(); setBusy(event.target, true); try { const data = await authApi('/auth/v1/token?grant_type=password', { method: 'POST', body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('login-password').value }) }); accessToken = data.access_token; document.getElementById('login-section').classList.add('hidden'); document.getElementById('delete-section').classList.remove('hidden'); document.getElementById('delete-section').scrollIntoView({ behavior: 'smooth' }); } catch (_) { showMessage('login-message', 'Anmeldung fehlgeschlagen. Bitte Eingaben prüfen.', true); } finally { setBusy(event.target, false); } });
 
   document.getElementById('logout-button').addEventListener('click', () => { accessToken = ''; document.getElementById('delete-section').classList.add('hidden'); document.getElementById('login-section').classList.remove('hidden'); });
-  document.getElementById('export-button').addEventListener('click', async event => { event.target.disabled = true; try { const response = await fetch(exportEndpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + accessToken } }); if (!response.ok) { const data = await response.json().catch(() => ({})); throw new Error(data.error || 'Bericht konnte nicht erstellt werden.'); } const blob = await response.blob(); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'wuffliga-datenschutzbericht-' + new Date().toISOString().slice(0, 10) + '.json'; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url); showMessage('export-message', 'Der Datenschutzbericht wurde heruntergeladen.'); } catch (error) { showMessage('export-message', error.message, true); } finally { event.target.disabled = false; } });
+  document.getElementById('export-button').addEventListener('click', async event => { event.target.disabled = true; try { const response = await fetch(exportEndpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + accessToken } }); if (!response.ok) { const data = await response.json().catch(() => ({})); throw new Error(data.error || 'Archiv konnte nicht erstellt werden.'); } const blob = await response.blob(); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'wuffliga-datenschutzarchiv-' + new Date().toISOString().slice(0, 10) + '.zip'; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url); showMessage('export-message', 'Das vollständige Datenschutzarchiv wurde heruntergeladen.'); } catch (error) { showMessage('export-message', error.message, true); } finally { event.target.disabled = false; } });
   document.getElementById('delete-button').addEventListener('click', async event => { if (!document.getElementById('delete-confirm').checked) return showMessage('delete-message', 'Bitte bestätige zuerst den Hinweis.', true); if (!confirm('Konto und Profildaten jetzt endgültig löschen?')) return; event.target.disabled = true; try { const response = await fetch(deleteEndpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + accessToken } }); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Löschen fehlgeschlagen.'); accessToken = ''; document.querySelectorAll('.account-card').forEach(el => el.classList.add('hidden')); document.querySelector('.page-title').insertAdjacentHTML('afterend', '<section class="account-card"><h2>Konto gelöscht</h2><p>Dein Konto und die zugehörigen persönlichen Daten wurden entfernt.</p></section>'); } catch (error) { showMessage('delete-message', error.message, true); event.target.disabled = false; } });
 })();
 </script>
