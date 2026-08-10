@@ -3,79 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="WuffLiga-Passwort zurücksetzen oder Konto und zugehörige Profildaten löschen.">
+  <meta name="description" content="WuffLiga-Konto löschen, Datenkopie anfordern und Datenschutzrechte ausüben.">
   <meta name="referrer" content="no-referrer">
-  <title>Konto verwalten · WuffLiga</title>
-  <link rel="icon" href="logo.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css?v=20260806-2">
+  <title>Konto &amp; Daten · WuffLiga</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260810-4">
 </head>
 <body>
-<header><nav class="wrap"><a class="brand" href="index.html"><span class="paw">🐾</span>WuffLiga</a><div class="links"><a href="datenschutz.html">Datenschutz</a><a href="support.html">Support</a><a href="account-delete.html">Konto verwalten</a><a href="impressum.html">Impressum</a></div></nav></header>
+<header><nav class="wrap"><a class="brand" href="index.html"><span class="paw">🐾</span>WuffLiga</a><div class="links"><a href="datenschutz.html">Datenschutz</a><a href="support.html">Support</a><a href="account-delete.html">Konto &amp; Daten</a><a href="impressum.html">Impressum</a></div></nav></header>
 <main class="wrap account-page">
-  <div class="page-title"><h1>Konto verwalten</h1><p>Setze dein Passwort zurück oder lösche dein WuffLiga-Konto selbstständig.</p></div>
+  <div class="page-title"><h1>Konto &amp; Daten</h1><p>Lösche dein Konto in der App oder kontaktiere uns zu deinen Datenschutzrechten.</p></div>
 
-  <section class="account-card" id="recovery-request">
-    <h2>Passwort vergessen</h2>
-    <p class="muted">Wir senden einen sicheren Link an deine registrierte E-Mail-Adresse.</p>
-    <form id="reset-form"><label for="reset-email">E-Mail-Adresse</label><input id="reset-email" type="email" autocomplete="email" required><button class="button form-button">Link zum Zurücksetzen senden</button></form>
-    <div class="form-message" id="reset-message" role="status"></div>
+  <section class="account-card">
+    <h2>Konto in der App löschen</h2>
+    <p>Der schnellste und sicherste Weg führt über deine bereits angemeldete WuffLiga-App:</p>
+    <ol>
+      <li>Öffne <strong>Profil</strong>.</li>
+      <li>Wähle <strong>Datenschutz</strong>.</li>
+      <li>Tippe auf <strong>Konto und alle Daten löschen</strong>.</li>
+      <li>Bestätige die endgültige Löschung.</li>
+    </ol>
+    <p class="muted">Dieser Weg funktioniert auch, wenn du dein Konto mit „Mit Apple anmelden“ erstellt hast.</p>
   </section>
 
-  <section class="account-card hidden" id="new-password">
-    <h2>Neues Passwort festlegen</h2>
-    <form id="password-form"><label for="password">Neues Passwort</label><input id="password" type="password" minlength="8" autocomplete="new-password" required><label for="password-confirm">Passwort wiederholen</label><input id="password-confirm" type="password" minlength="8" autocomplete="new-password" required><button class="button form-button">Passwort speichern</button></form>
-    <div class="form-message" id="password-message" role="status"></div>
+  <section class="account-card">
+    <h2>Datenkopie oder Datenschutzanfrage</h2>
+    <p>Du kannst Auskunft, eine Kopie deiner Daten, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit oder Widerspruch per E-Mail anfordern.</p>
+    <a class="button" href="mailto:marvinsander@wtnet.de?subject=WuffLiga%20Datenschutzanfrage">Datenschutzanfrage senden</a>
+    <p>Schreibe bitte kurz, welches Recht du ausüben möchtest. Nenne nach Möglichkeit deinen WuffLiga-Anzeigenamen und die im Konto verwendete E-Mail-Adresse oder den Hinweis, dass du „Mit Apple anmelden“ nutzt.</p>
+    <p><strong>Sende niemals dein Passwort.</strong> Wir fragen nicht per E-Mail nach Passwörtern. Falls Zweifel an deiner Identität bestehen, verwenden wir eine angemessene, möglichst datensparsame Prüfung, etwa eine Bestätigung innerhalb der angemeldeten App.</p>
   </section>
 
-  <section class="account-card" id="login-section">
-    <h2>Datenschutzbericht oder Konto verwalten</h2>
-    <p class="muted">Melde dich zur Identitätsprüfung an. Deine Zugangsdaten werden direkt an Supabase übertragen und von dieser Website nicht gespeichert.</p>
-    <form id="login-form"><label for="email">E-Mail-Adresse</label><input id="email" type="email" autocomplete="email" required><label for="login-password">Passwort</label><input id="login-password" type="password" autocomplete="current-password" required><button class="button secondary form-button">Anmelden</button></form>
-    <div class="form-message" id="login-message" role="status"></div>
+  <section class="account-note">
+    <h2>Was bei einer Löschung passiert</h2>
+    <p>Das Benutzerkonto sowie die ausschließlich dir zugeordneten Profile, Aktivitäten und Mediendateien werden gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten oder vorrangigen Gründe entgegenstehen. Daten gemeinsam verwalteter Hunde können für andere berechtigte Halter bestehen bleiben. Beiträge oder Interaktionen mit Bezug zu anderen Personen werden je nach Kontext gelöscht oder so entkoppelt, dass Rechte Dritter gewahrt bleiben.</p>
+    <p>Sicherheitskopien und technische Protokolle können erst mit dem regulären Überschreibungszyklus vollständig verschwinden. Einzelheiten findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
   </section>
 
-  <section class="account-card danger-card hidden" id="delete-section">
-    <h2>Deine gespeicherten Daten</h2>
-    <p>Lade eine vollständige Kopie deiner bereitgestellten Daten herunter. Das ZIP-Archiv enthält einen strukturierten Datenschutzbericht sowie die zugehörigen hochgeladenen Originalbilder und -videos.</p>
-    <button id="export-button" class="button form-button">Vollständiges Datenschutzarchiv herunterladen</button>
-    <div class="form-message" id="export-message" role="status"></div>
-    <hr class="account-divider">
-    <h2>Endgültige Löschung</h2>
-    <p>Das Benutzerkonto sowie alle ausschließlich dir zugeordneten Profile, Aktivitäten und Mediendateien werden unwiderruflich gelöscht. Gemeinsam verwaltete Hundeprofile bleiben für den anderen Halter bestehen.</p>
-    <label class="check-label"><input id="delete-confirm" type="checkbox"> <span>Ich verstehe, dass dieser Vorgang nicht rückgängig gemacht werden kann.</span></label>
-    <button id="delete-button" class="button danger form-button">Konto endgültig löschen</button>
-    <button id="logout-button" class="button secondary form-button">Abmelden</button>
-    <div class="form-message" id="delete-message" role="status"></div>
+  <section class="account-note">
+    <h2>Bearbeitungszeit</h2>
+    <p>Wir bearbeiten Datenschutzanfragen grundsätzlich unverzüglich und spätestens innerhalb eines Monats. Bei komplexen oder zahlreichen Anfragen kann sich die Frist im gesetzlich zulässigen Umfang verlängern; darüber informieren wir rechtzeitig.</p>
   </section>
-
-  <article class="account-note"><h2>Hinweise zur Löschung</h2><p>Sicherheitskopien und technische Protokolle können erst mit dem regulären Überschreibungszyklus vollständig verschwinden. Gesetzliche Aufbewahrungspflichten bleiben unberührt. Weitere Informationen findest du in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p><p class="muted">Diese Seite arbeitet automatisiert und ohne KI.</p></article>
 </main>
 <footer><div class="wrap"><span>© 2026 WuffLiga</span><span><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></span></div></footer>
-<script>
-(() => {
-  'use strict';
-  const project = 'https://uylqpueptrulbbaxmllc.supabase.co';
-  const key = 'sb_publishable_Wyq430CcD4r2GmnURF7bgQ_dJaCfK8d';
-  const deleteEndpoint = project + '/functions/v1/wuffliga-konto/delete';
-  const exportEndpoint = project + '/functions/v1/wuffliga-konto/export-archive';
-  let accessToken = '';
-
-  const showMessage = (id, text, error = false) => { const el = document.getElementById(id); el.textContent = text; el.className = 'form-message visible' + (error ? ' error' : ''); };
-  const setBusy = (form, busy) => form.querySelectorAll('button,input').forEach(el => { el.disabled = busy; });
-  async function authApi(path, options = {}) { const response = await fetch(project + path, { ...options, headers: { apikey: key, 'content-type': 'application/json', ...(options.headers || {}) } }); const data = await response.json().catch(() => ({})); if (!response.ok) throw new Error(data.msg || data.message || data.error_description || data.error || 'Vorgang fehlgeschlagen.'); return data; }
-
-  const hash = new URLSearchParams(location.hash.slice(1));
-  if (hash.get('type') === 'recovery' && hash.get('access_token')) { accessToken = hash.get('access_token'); document.getElementById('new-password').classList.remove('hidden'); document.getElementById('recovery-request').classList.add('hidden'); history.replaceState({}, '', location.pathname); }
-
-  document.getElementById('reset-form').addEventListener('submit', async event => { event.preventDefault(); setBusy(event.target, true); try { const redirect = location.origin + location.pathname; await authApi('/auth/v1/recover?redirect_to=' + encodeURIComponent(redirect), { method: 'POST', body: JSON.stringify({ email: document.getElementById('reset-email').value }) }); showMessage('reset-message', 'Falls ein Konto existiert, wurde eine E-Mail versendet.'); } catch (_) { showMessage('reset-message', 'Falls ein Konto existiert, wurde eine E-Mail versendet.'); } finally { setBusy(event.target, false); } });
-
-  document.getElementById('password-form').addEventListener('submit', async event => { event.preventDefault(); const password = document.getElementById('password').value; const confirmation = document.getElementById('password-confirm').value; if (password !== confirmation) return showMessage('password-message', 'Die Passwörter stimmen nicht überein.', true); setBusy(event.target, true); try { await authApi('/auth/v1/user', { method: 'PUT', headers: { Authorization: 'Bearer ' + accessToken }, body: JSON.stringify({ password }) }); showMessage('password-message', 'Dein Passwort wurde geändert. Du kannst dich jetzt anmelden.'); document.getElementById('login-section').scrollIntoView({ behavior: 'smooth' }); } catch (error) { showMessage('password-message', error.message, true); } finally { setBusy(event.target, false); } });
-
-  document.getElementById('login-form').addEventListener('submit', async event => { event.preventDefault(); setBusy(event.target, true); try { const data = await authApi('/auth/v1/token?grant_type=password', { method: 'POST', body: JSON.stringify({ email: document.getElementById('email').value, password: document.getElementById('login-password').value }) }); accessToken = data.access_token; document.getElementById('login-section').classList.add('hidden'); document.getElementById('delete-section').classList.remove('hidden'); document.getElementById('delete-section').scrollIntoView({ behavior: 'smooth' }); } catch (_) { showMessage('login-message', 'Anmeldung fehlgeschlagen. Bitte Eingaben prüfen.', true); } finally { setBusy(event.target, false); } });
-
-  document.getElementById('logout-button').addEventListener('click', () => { accessToken = ''; document.getElementById('delete-section').classList.add('hidden'); document.getElementById('login-section').classList.remove('hidden'); });
-  document.getElementById('export-button').addEventListener('click', async event => { event.target.disabled = true; try { const response = await fetch(exportEndpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + accessToken } }); if (!response.ok) { const data = await response.json().catch(() => ({})); throw new Error(data.error || 'Archiv konnte nicht erstellt werden.'); } const blob = await response.blob(); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'wuffliga-datenschutzarchiv-' + new Date().toISOString().slice(0, 10) + '.zip'; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url); showMessage('export-message', 'Das vollständige Datenschutzarchiv wurde heruntergeladen.'); } catch (error) { showMessage('export-message', error.message, true); } finally { event.target.disabled = false; } });
-  document.getElementById('delete-button').addEventListener('click', async event => { if (!document.getElementById('delete-confirm').checked) return showMessage('delete-message', 'Bitte bestätige zuerst den Hinweis.', true); if (!confirm('Konto und Profildaten jetzt endgültig löschen?')) return; event.target.disabled = true; try { const response = await fetch(deleteEndpoint, { method: 'POST', headers: { Authorization: 'Bearer ' + accessToken } }); const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Löschen fehlgeschlagen.'); accessToken = ''; document.querySelectorAll('.account-card').forEach(el => el.classList.add('hidden')); document.querySelector('.page-title').insertAdjacentHTML('afterend', '<section class="account-card"><h2>Konto gelöscht</h2><p>Dein Konto und die zugehörigen persönlichen Daten wurden entfernt.</p></section>'); } catch (error) { showMessage('delete-message', error.message, true); event.target.disabled = false; } });
-})();
-</script>
 </body>
 </html>
