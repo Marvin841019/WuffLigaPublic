@@ -24,3 +24,8 @@ footer{border-top:1px solid rgba(13,73,52,.16);padding:30px 0 44px;color:var(--m
 /* Full WuffLiga mark in the header */
 .brand{width:154px;height:74px;background-size:contain}
 @media (max-width:760px){.brand{width:118px;height:58px}}
+
+/* Real app screenshot preview */
+.app-card{padding:0;background:transparent;box-shadow:0 28px 70px rgba(13,73,52,.24);overflow:hidden;border-radius:28px;line-height:0;max-width:390px;justify-self:center}
+.app-card:before{display:none}.app-card img{display:block;width:100%;height:auto}
+@media (max-width:760px){.app-card{max-width:430px;width:100%}}
